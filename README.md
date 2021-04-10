@@ -1,7 +1,7 @@
 # 02.ft_server
 ## System administration -> Docker &amp; the creation of a web server
 
-######Subject
+###### Subject
 ```
 "This topic is intended to introduce you to system administration.  
 It will make you aware of the importance of using scripts to automate your tasks.  
@@ -9,7 +9,7 @@ For that, you will discover the "docker" technology and use it to install a comp
 This server will run multiples services: Wordpress, phpMyAdmin, and a SQL database."
 ```
 
-######Server
+###### Server
 ```
 server : is a role, that computer takes. Every computer could be a server.
 lemp : Linux, Nginx, MySQL, PHP.
@@ -23,19 +23,19 @@ sites including Yandex, Mail.Ru, VK, and Rambler.
 According to Netcraft, nginx served or proxied 23.06% busiest sites in March 2021."
 https://nginx.org/en/"
 ```
-######What is a Self-Signed SSL Certificate?
+###### What is a Self-Signed SSL Certificate?
 ```
 A self-signed SSL certificate is a certificate that is signed by the person who created it rather than a trusted certificate authority. Self-signed certificates can have the same level of encryption as the trusted CA-signed SSL certificate.
 
 Web browsers do not recognize the self-signed certificates as valid. When using a self-signed certificate, the web browser shows a warning to the visitor that the web site certificate cannot be verified.
 ```
-######Install phpMyAdmin with Nginx on Debian 10 Buster
+###### Install phpMyAdmin with Nginx on Debian 10 Buster
 ```
 Install LEMP Stack on Debian 10 Buster
 As a prerequisite of running phpMyAdmin with Nginx, you need to have installed and setup LEMP Stack on Debian 10 Buster. If you have not, you can follow the link below to setup LEMP stack on Debian 10.
 [more](https://kifarunix.com/install-phpmyadmin-with-nginx-on-debian-10-buster/)
 ```
-######Extra
+###### Extra
 ```
 Colors for messages: https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
 More on Docker : https://docs.docker.com/
@@ -44,12 +44,13 @@ Another tutorial: https://www.scaleway.com/en/docs/deploy-wordpress-with-lemp/
 
 ## re-Sources
 
-[Barani Murthy](https://medium.com/swlh/wordpress-deployment-with-nginx-php-fpm-and-mariadb-using-docker-compose-55f59e5c1a)
-[Manny](https://codingwithmanny.medium.com/custom-wordpress-docker-setup-8851e98e6b8)
-[Hub-Docker](https://hub.docker.com/_/nginx)  
-[Docker Curriculum](https://docker-curriculum.com/)
-[kukinpower](https://github.com/kukinpower)
-[forhjy](https://forhjy.medium.com/how-to-install-lemp-wordpress-on-debian-buster-by-using-dockerfile-1-75ddf3ede861)
+[Barani Murthy](https://medium.com/swlh/wordpress-deployment-with-nginx-php-fpm-and-mariadb-using-docker-compose-55f59e5c1a)  
+[Manny](https://codingwithmanny.medium.com/custom-wordpress-docker-setup-8851e98e6b8)  
+[Hub-Docker](https://hub.docker.com/_/nginx)    
+[Docker Curriculum](https://docker-curriculum.com/)  
+[kukinpower](https://github.com/kukinpower)  
+[forhjy](https://forhjy.medium.com/how-to-install-lemp-wordpress-on-debian-buster-by-using-dockerfile-1-75ddf3ede861)  
+[thegeekdiary](https://www.thegeekdiary.com/how-to-install-docker-on-mac/)  
 
 ## What I'm doing
 
@@ -76,20 +77,15 @@ Another tutorial: https://www.scaleway.com/en/docs/deploy-wordpress-with-lemp/
 18-> docker run -d -p 8080:80 test 
 19-> http://localhost:8080/ -> Welcome to nginx 😎 
 20-> confirm ID with: docker ps
-20-> enter this container with: docker exec -it [CONTAINER_ID] /bin/sh
+21-> enter this container with: docker exec -it [CONTAINER_ID] /bin/sh
 22-> # work && exit the cointainer with:exit
 23-> finish confir id: docker ps -a 
-23-> docker commit [CONTAINER_ID] [image_name]
-23-> finnish confir id: docker ps -a 
-23-> updated nginx.config 
-23-> check syntax: nginx -t 
-23-> nginx -s reload
-23-> brew services restart nginx
-23-> brew services restart nginx
-
--
+24-> docker commit [CONTAINER_ID] [image_name]
+25-> finnish confir id: docker ps -a 
+26-> updated nginx.config 
+27-> check syntax: nginx -t 
+28-> nginx -s reload
+29-> brew services restart nginx
+30-> brew services restart nginx
 
 ```
-
-
-https://www.thegeekdiary.com/how-to-install-docker-on-mac/
