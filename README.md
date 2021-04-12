@@ -35,6 +35,14 @@ Install LEMP Stack on Debian 10 Buster
 As a prerequisite of running phpMyAdmin with Nginx, you need to have installed and setup LEMP Stack on Debian 10 Buster. If you have not, you can follow the link below to setup LEMP stack on Debian 10.
 [more](https://kifarunix.com/install-phpmyadmin-with-nginx-on-debian-10-buster/)
 ```
+###### SSL key
+
+[Generate](https://linuxize.com/post/creating-a-self-signed-ssl-certificate/)
+```
+A self-signed SSL certificate is a certificate that is signed by the person who created it rather than a trusted certificate authority. Self-signed certificates can have the same level of encryption as the trusted CA-signed SSL certificate.
+
+Web browsers do not recognize the self-signed certificates as valid. When using a self-signed certificate, the web browser shows a warning to the visitor that the web site certificate cannot be verified.
+```
 ###### Extra
 ```
 Colors for messages: https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
@@ -86,6 +94,10 @@ Another tutorial: https://www.scaleway.com/en/docs/deploy-wordpress-with-lemp/
 27-> check syntax: nginx -t 
 28-> nginx -s reload
 29-> brew services restart nginx
-30-> brew services restart nginx
+30-> if you get :nginx: [emerg] bind() to 0.0.0.0:80 failed (48: Address already in use) use command bellow ⬇️
+31-> (and you did ps and already killed the pid docker) use this: lsof -nPL -iTCP:8080
+32-> this will list all the pro. run: nginx -s stop
+32-> this can help u figure out wich processes are using the same port but with a hidden name: ps -ef | grep nginx.
+33-> if nothing else works go on you activity monitor and kill all docker processes and restart.
 
 ```
