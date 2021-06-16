@@ -1,5 +1,11 @@
 ##########################################################################################
-#	Dockerfile
+#	Dockerfile	
+#						                                    
+#	Version 0.1
+#	by:@mvaldeta
+#	Project: ft_server
+#
+#	enjoy :)
 #########################################################################################
 FROM docker/whalesay:latest
 LABEL Name=02 Version=0.0.1
@@ -21,9 +27,9 @@ RUN wget https://wordpress.org/latest.tar.gz
 #########################################################################################
 #	NGINX
 #########################################################################################
-COPY ./01.src/nginx.conf /etc/nginx/sites-available/
-RUN rm /var/www/html/index.nginx-debian.html
-COPY ./01.src/index.nginx-debian.html /var/www/html/
+COPY ./srcs/nginx.conf /etc/nginx/sites-available/
+RUN rm /var/www/html/index.nginx.html
+COPY ./srcs/index.nginx.html /var/www/html/
 RUN ln -sf /etc/nginx/sites-available/nginx.conf /etc/nginx/sites-enabled
 #########################################################################################
 #	KEY
@@ -39,12 +45,12 @@ RUN mv phpMyAdmin-5.0.1-english.tar.gz /var/www/html/
 WORKDIR /var/www/html/
 RUN tar -xf phpMyAdmin-5.0.1-english.tar.gz && rm -rf phpMyAdmin-5.0.1-english.tar.gz
 RUN mv phpMyAdmin-5.0.1-english phpmyadmin
-COPY ./01.src/config.inc.php /var/www/html/phpmyadmin
+COPY ./srcs/config.inc.php /var/www/html/phpmyadmin
 #########################################################################################
 #	WORD-PRESS
 #########################################################################################
 WORKDIR /
-COPY ./01.src/wp-config.php /var/www/html
+COPY ./srcs/wp-config.php /var/www/html
 RUN mv latest.tar.gz /var/www/html/
 WORKDIR /var/www/html/
 RUN tar -xvzf latest.tar.gz && rm -rf latest.tar.gz
@@ -58,14 +64,14 @@ RUN chown -R www-data:www-data /var/www/* && \
 #	COPY SART.SH TO TMP
 #########################################################################################
 WORKDIR /
-COPY ./01.src/comands.sh /tmp/
-COPY ./01.src/autoindex.sh /tmp/
+COPY ./srcs/init.sh /tmp/
+COPY ./srcs/autoindex.sh /tmp/
 RUN chmod -R 755 /tmp/autoindex.sh
 #########################################################################################
 #	START.SH
 #########################################################################################
 WORKDIR /etc/nginx/sites-available/
-CMD bash /tmp/comands.sh
+CMD bash /tmp/init.sh
 #########################################################################################
 #	ADD MORE STUFF IF YOU NEED :)
 #########################################################################################
