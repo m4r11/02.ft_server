@@ -28,7 +28,7 @@ server {
 	# Directives for all files and folders within the server
 	location / {
 		# Turn autoindex on or off
-		autoindex off;
+		autoindex ${AUTOINDEX};
 		try_files $uri $uri/ =404;
 	}
 

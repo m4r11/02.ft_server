@@ -21,16 +21,16 @@ RUN apt-get update && apt-get upgrade -y
 #########################################################################################
 RUN apt-get install -y nginx mariadb-server openssl vim
 RUN	apt-get install -y php7.3 php-mysql php-fpm php-pdo php-gd php-cli php-mbstring
-RUN apt-get install -y wget
+RUN apt-get install -y wget 
 RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.0.1/phpMyAdmin-5.0.1-english.tar.gz
 RUN wget https://wordpress.org/latest.tar.gz
 #########################################################################################
 #	NGINX
 #########################################################################################
-COPY ./srcs/nginx.conf /etc/nginx/sites-available/
+COPY ./srcs/default /root/default.template
 #RUN rm /var/www/html/index.nginx.html
 COPY ./srcs/index.nginx.html /var/www/html/
-RUN ln -sf /etc/nginx/sites-available/nginx.conf /etc/nginx/sites-enabled
+RUN ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled
 #########################################################################################
 #	KEY
 #########################################################################################
@@ -71,6 +71,8 @@ RUN chmod -R 755 /tmp/autoindex.sh
 #	START.SH
 #########################################################################################
 WORKDIR /etc/nginx/sites-available/
+ENV AUTOINDEX=on
+RUN apt-get install -y gettext-base
 CMD bash /tmp/init.sh
 #########################################################################################
 #	ADD MORE STUFF IF YOU NEED :)

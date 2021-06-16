@@ -35,4 +35,6 @@ echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'localhost' WITH GRANT OPTIO
 echo "FLUSH PRIVILEGES;"| mysql -u root --skip-password
 echo "update mysql.user set plugin='' where user='root';"| mysql -u root --skip-password
 
+envsubst </root/default.template >/etc/nginx/sites-available/default
+
 bash
