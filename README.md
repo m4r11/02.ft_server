@@ -7,7 +7,7 @@ Version 0.1
 This server will run multiples services: Wordpress,  
 phpMyAdmin, and a SQL database."
 ```
-![localhost_image](https://github.com/m4r11/02.ft_server/blob/main/02.media/Screen%20Shot%202021-06-15%20at%2015.29.28.png)
+![localhost_image](https://github.com/m4r11/02.ft_server/blob/main/z.media/Screen%20Shot%202021-06-15%20at%2015.29.28.png)
 
 ###### Usage
 ```
@@ -15,13 +15,13 @@ phpMyAdmin, and a SQL database."
 2 -> cd
 3 -> sh start.sh
 ```
-![start](https://github.com/m4r11/02.ft_server/blob/main/02.media/Screen%20Shot%202021-06-15%20at%2015.33.29.png)
+![start](https://github.com/m4r11/02.ft_server/blob/main/z.media/Screen%20Shot%202021-06-16%20at%2010.35.50.png)
 ```
 4 -> localhost
 5 -> voila 
 6 -> new term, run stop.sh to finish
 ```
-![delete](https://github.com/m4r11/02.ft_server/blob/main/02.media/Screen%20Shot%202021-06-15%20at%2015.33.16.png)
+![stop](https://github.com/m4r11/02.ft_server/blob/main/z.media/Screen%20Shot%202021-06-16%20at%2010.36.27.png)
 
 ###### Change it 
 ```
