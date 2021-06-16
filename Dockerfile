@@ -28,7 +28,7 @@ RUN wget https://wordpress.org/latest.tar.gz
 #	NGINX
 #########################################################################################
 COPY ./srcs/nginx.conf /etc/nginx/sites-available/
-RUN rm /var/www/html/index.nginx.html
+#RUN rm /var/www/html/index.nginx.html
 COPY ./srcs/index.nginx.html /var/www/html/
 RUN ln -sf /etc/nginx/sites-available/nginx.conf /etc/nginx/sites-enabled
 #########################################################################################
