@@ -18,5 +18,4 @@ echo "${BLUE}--------------------------------------------------------"
 # STOP IMAGE & CLEAR
 ###############################################################
 docker stop ft_server && \
-docker rm ft_server && \
-docker rmi ft_server
+docker rm   ft_server

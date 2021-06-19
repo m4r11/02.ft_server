@@ -2,22 +2,13 @@
 #########################################################################
 # COMMANDS AKA INIT SERVICES
 #########################################################################
+
+envsubst </root/default.template >/etc/nginx/sites-available/default
+
 #########################################################################
 # stop running in case init fails
 #########################################################################
 set -eu
-#########################################################################
-# set up message color
-#########################################################################
-mkdir /etc/nginx/ssl
-openssl req -newkey rsa:4096 \
-			-x509 \
-			-sha256 \
-			-days 3650 \
-			-nodes \
-			-out /etc/nginx/ssl/ssl-bundle.crt \
-			-keyout /etc/nginx/ssl/ssl-bundle.key \
-			-subj "/C=PT/ST=Lisbon/L=Lisbon/O=42 Lisboa/OU=mvaldeta/CN=www.localhost.com"
 #########################################################################
 service nginx start
 nginx -t
@@ -35,6 +26,5 @@ echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'localhost' WITH GRANT OPTIO
 echo "FLUSH PRIVILEGES;"| mysql -u root --skip-password
 echo "update mysql.user set plugin='' where user='root';"| mysql -u root --skip-password
 
-envsubst </root/default.template >/etc/nginx/sites-available/default
 
 bash
