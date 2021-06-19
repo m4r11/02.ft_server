@@ -60,9 +60,9 @@ RUN openssl req -x509 -nodes -days 365 -subj "/C=PT/ST=Lisbon/L=Lisbon/O=42/OU=4
 #########################################################################################
 #	COPY START.SH TO TMP
 #########################################################################################
-WORKDIR /
-COPY ./srcs/init.sh /tmp/
-
+COPY ./srcs/init.sh /root/
+COPY ./srcs/autoindex.sh /root/
+RUN chmod +x /root/autoindex
 #########################################################################################
 #	NGINX CONFIG
 #########################################################################################
@@ -74,13 +74,13 @@ RUN ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled
 #########################################################################################
 #	START.SH
 #########################################################################################
-WORKDIR /etc/nginx/sites-available/
+WORKDIR /root
 
 ENV AUTOINDEX=on
 ENV DOLLAR='$'
 
 RUN apt-get install -y gettext-base
-CMD bash /tmp/init.sh
+CMD bash /root/init.sh
 #########################################################################################
 #	ADD MORE STUFF IF YOU NEED :)
 #########################################################################################
